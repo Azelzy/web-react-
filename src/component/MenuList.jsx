@@ -1,15 +1,14 @@
 import React from 'react';
 import MenuItem from './MenuItem';
-import { foodlist } from '../utils/data';
 
-function MenuList() {
-    const foods = foodlist();
-
+function MenuList({foods, onDelete}) {
     return (
         <div className="menu-list">
             {foods.map((food) => (
                 <MenuItem
                     key={food.id}
+                    id = {food.id}
+                    onDelete = { onDelete }
                     {...food} />
             ))}
         </div>
