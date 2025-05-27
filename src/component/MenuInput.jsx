@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function MenuInput({ onAdd }) {
   const [name, setName] = useState('');
@@ -7,12 +9,22 @@ function MenuInput({ onAdd }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name && price && image) {
-      onAdd({ name, price: parseFloat(price), image });
-      setName('');
-      setPrice('');
-      setImage('');
+    if (!name || !price || !image) {
+      toast.warning('Semua field harus diisi!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
     }
+    onAdd({ name, price: parseFloat(price), image });
+    setName('');
+    setPrice('');
+    setImage('');
   };
 
   return (
