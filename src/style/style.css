@@ -594,33 +594,242 @@ body.light-theme .watermark {
   color: #D5451B;
 }
 
-/* delete button */
-.delete-btn {
-  position: absolute;
+.delete-button {
+  position: absolute; /* Agar tombol berada di sudut item */
   top: 10px;
   right: 10px;
-  background: #ff9c45;
+  background-color: #d5461b; /* Warna utama */
+  color: #fff; /* Warna teks */
   border: none;
-  border-radius: 50%;
+  border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
   width: 32px;
   height: 32px;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px #d5461b57;
-  transition: background 0.2s, transform 0.2s;
-  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.delete-btn:hover {
-  background: #ff9c45;
-  transform: scale(1.1);
+.delete-button:hover {
+  background-color: #ff9c45; /* Warna hover */
+  transform: scale(1.1); /* Efek zoom */
 }
 
-.delete-icon {
-  color: #fff;
-  font-size: 1.2rem;
+/* Responsive styles */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+  }
+  .aurora__item {
+    width: 50vw;
+    height: 50vw;
+  }
+  .aurora__item:nth-of-type(1),
+  .aurora__item:nth-of-type(2) {
+    top: -40%;
+  }
+  .aurora__item:nth-of-type(3),
+  .aurora__item:nth-of-type(4) {
+    bottom: -40%;
+  }
+}
+/* Responsive styles for menu */
+@media (max-width: 500px) {
+  .menu {
+    font-size: 1.8rem;
+  }
+  .menu-item {
+    width: 90vw;
+    padding: 16px 12px;
+  }
+  .image-container img {
+    width: 150px;
+    height: 100px;
+  }
+}/* Responsive styles for aurora effect */
+@media (max-width: 400px) {
+  .aurora__item {
+    width: 40vw;
+    height: 40vw;
+  }
+  .aurora__item:nth-of-type(1),
+  .aurora__item:nth-of-type(2) {
+    top: -30%;
+  }
+  .aurora__item:nth-of-type(3),
+  .aurora__item:nth-of-type(4) {
+    bottom: -30%;
+  }
+}
+/* Responsive styles for footer bar */
+@media (max-width: 400px) {
+  .footer-bar {
+    padding: 8px 0;
+  }
+  .watermark {
+    font-size: 0.9rem;
+  }
+}
+/* Responsive styles for delete button */
+@media (max-width: 400px) {
+  .delete-btn {
+    width: 28px;
+    height: 28px;
+    top: 8px;
+    right: 8px;
+  }
+  .delete-icon {
+    font-size: 1rem;
+  }
+}
+/* Responsive styles for theme switch */
+@media (max-width: 400px) {
+  .theme-switch__container {
+    width: 4.5em;
+    height: 2em;
+  }
+  .theme-switch__circle-container {
+    width: 3em;
+    height: 3em;
+  }
+  .theme-switch__sun-moon-container {
+    width: 1.75em;
+    height: 1.75em;
+  }
+}/* Responsive styles for menu list */
+@media (max-width: 400px) {
+  .menu-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .menu-item {
+    width: 90vw;
+    padding: 16px 12px;
+  }
+}/* Responsive styles for aurora effect */
+@media (max-width: 400px) {
+  .aurora__item {
+    width: 30vw;
+    height: 30vw;
+  }
+  .aurora__item:nth-of-type(1),
+  .aurora__item:nth-of-type(2) {
+    top: -20%;
+  }
+  .aurora__item:nth-of-type(3),
+  .aurora__item:nth-of-type(4) {
+    bottom: -20%;
+  }
+}/* Responsive styles for title */
+@media (max-width: 400px) {
+  .title {
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+  }
+}
+/* menu input */
+.menu-input-container {
+  text-align: left;
+  border: 2px solid #521c0d;
+  background-color: #fce8d5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.menu-input-container:hover h2,
+.menu-input-container:hover label {
+  color: #f4e7ee; /* Warna teks terang untuk mode gelap */
+}
+
+.menu-input-container:hover input {
+  background-color: #ff9c45; /* Warna latar belakang input */
+  color: #521c0d; /* Warna teks input */
+  border-color: #f4e7ee; /* Border input */
+}
+
+.menu-input-container:hover input::placeholder {
+  color: #f4e7ee; /* Warna placeholder */
+}
+
+.menu-input-container:hover .btn-tambah {
+  background-color: #ff9c45; /* Warna tombol */
+  color: #521c0d; /* Warna teks tombol */
+}
+
+.menu-input-container:hover .btn-tambah:hover {
+  background-color: #f4e7ee; /* Warna tombol saat hover */
+  color: #d5461b; /* Warna teks tombol saat hover */
+}
+
+.menu-input-container:hover {
+  transform: translateY(-6px) scale(1.04); /* Efek hover */
+  background-color: #d5461b; /* Warna gelap seperti menu-item */
+  box-shadow: 0 6px 18px rgba(213, 69, 27, 0.15); /* Tambahkan bayangan */
+  border-color: #ff9c45; /* Border berubah warna */
+}
+
+.menu-input-container h2 {
+  text-align: center;
+  color: #d5461b;
+  margin-bottom: 20px;
+}
+
+.menu-input-form .form-group {
+  margin-bottom: 15px;
+}
+
+.menu-input-form label {
+  text-align: left; 
+  display: block;
+  margin-bottom: 5px;
+  color: #521c0d;
   font-weight: bold;
-  pointer-events: none;
+}
+
+.menu-input-form input {
+  width: 100%; /* Sesuaikan dengan lebar container */
+  padding: 10px;
+  border: 1px solid #ff9c45;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.menu-input-form input:focus {
+  border-color: #d5461b;
+  outline: none;
+}
+.menu-input-form .form-group {
+  margin-bottom: 15px;
+  text-align: left; /* Pastikan semua elemen dalam grup align kiri */
+}
+
+.btn-tambah {
+  background-color: #ff9c45;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Tombol memenuhi lebar form */
+}
+
+.btn-tambah:hover {
+  background-color: #d5461b;
 }

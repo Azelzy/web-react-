@@ -40,4 +40,34 @@
   max-width: 100%; /* Membuat gambar responsif di dalam container */
   height: auto;
 }
+/* delete button */
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff9c45;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px #d5461b57;
+  transition: background 0.2s, transform 0.2s;
+  z-index: 2;
+}
+
+.delete-btn:hover {
+  background: #ff9c45;
+  transform: scale(1.1);
+}
+
+.delete-icon {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  pointer-events: none;
+}
 
